@@ -102,3 +102,7 @@ button:nth-child(2) {
     margin-right: -200px;
     color: #ff69b4;
 }
+
+.no-btn {
+    position: absolute;
+}

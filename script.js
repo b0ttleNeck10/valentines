@@ -28,21 +28,14 @@ function launchConfetti() {
     });
 }
 
+
 document.addEventListener("DOMContentLoaded", () => {
     const box = document.querySelector('.center-box');
     const text = document.querySelector('.text');
     const yesBtn = document.querySelector(".yes-btn");
     const noBtn = document.querySelector(".no-btn");
-    const gif = document.querySelector('.gif-container')
+    const gif = document.querySelector('.gif-container');
     const btnContainer = document.querySelector('.button-container');
-    const start = document.querySelector('.start');
-    const intro = document.querySelector('.intro');
-
-    start.addEventListener('click', () => {
-        box.style.display = 'flex';
-        intro.style.display = 'none';
-        document.querySelector('audio').play();
-    });
 
     if (box && yesBtn && noBtn) {
         const wrapperRect = box.getBoundingClientRect();
@@ -50,18 +43,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
         yesBtn.addEventListener('click', () => {
             text.innerHTML = 'Heh!, pag shave daan</br>Hehehehhehe</br> Lapyoo :))';
-            gif.style.backgroundImage = "url(https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHB1ZGc0bzVjZnpvZDY1eG1zbGVkM21hdjJlajJ5NDVubGhtazMxaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/IdRpSgQ8D2C8H1n9XD/giphy.gif)"
+            gif.style.backgroundImage = "url(https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHB1ZGc0bzVjZnpvZDY1eG1zbGVkM21hdjJlajJ5NDVubGhtazMxaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/IdRpSgQ8D2C8H1n9XD/giphy.gif)";
             launchConfetti();
             btnContainer.style.display = 'none';
         });
 
         noBtn.addEventListener('mouseover', () => {
+            const wrapperRect = box.getBoundingClientRect();
+            const noBtnRect = noBtn.getBoundingClientRect();
+
             const i = Math.floor(Math.random() * (wrapperRect.width - noBtnRect.width));
             const j = Math.floor(Math.random() * (wrapperRect.height - noBtnRect.height));
 
-            noBtn.style.position = 'absolute'; // Ensure it's absolutely positioned
             noBtn.style.left = i + 'px';
             noBtn.style.top = j + 'px';
+        });
+
+        const start = document.querySelector('.start');
+        const intro = document.querySelector('.intro');
+
+        start.addEventListener('click', () => {
+            box.style.display = 'flex';
+            intro.style.display = 'none';
+            document.querySelector('audio').play();
         });
     }
 });
