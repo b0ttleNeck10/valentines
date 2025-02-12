@@ -35,6 +35,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const noBtn = document.querySelector(".no-btn");
     const gif = document.querySelector('.gif-container')
     const btnContainer = document.querySelector('.button-container');
+    const start = document.querySelector('.start');
+    const intro = document.querySelector('.intro');
+
+    start.addEventListener('click', () => {
+        box.style.display = 'flex';
+        intro.style.display = 'none';
+        document.querySelector('audio').play();
+    });
 
     if (box && yesBtn && noBtn) {
         const wrapperRect = box.getBoundingClientRect();
